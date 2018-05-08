@@ -40,26 +40,26 @@ class ViewController: UIViewController {
     @IBOutlet weak var homeGoalLabel: UIButton!
     @IBOutlet weak var awayGoalLabel: UIButton!
     
-    @IBAction func startTimer(_ sender: Any) {
-        if(isPlaying) {
-            return
-        }
-        gameClock = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(UpdateTimer), userInfo: nil, repeats: true)
-        isPlaying = true
-    }
-    @IBAction func pauseTimer(_ sender: Any) {
-        
-        gameClock.invalidate()
-        isPlaying = false
-    }
-    
-    @IBAction func resetTimer(_ sender: Any) {
-        
-        gameClock.invalidate()
-        isPlaying = false
-        gameTime = 1200
-        timeLabel.setTitle(timeString(time: gameTime), for: .normal)
-    }
+//    @IBAction func startTimer(_ sender: Any) {
+//        if(isPlaying) {
+//            return
+//        }
+//        gameClock = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(UpdateTimer), userInfo: nil, repeats: true)
+//        isPlaying = true
+//    }
+//
+//    @IBAction func pauseTimer(_ sender: Any) {
+//        gameClock.invalidate()
+//        isPlaying = false
+//    }
+//
+//    @IBAction func resetTimer(_ sender: Any) {
+//
+//        gameClock.invalidate()
+//        isPlaying = false
+//        gameTime = 1200
+//        timeLabel.setTitle(timeString(time: gameTime), for: .normal)
+//    }
     
     @IBAction func toggleGameClock(_ sender: Any) {
         if isPlaying {
