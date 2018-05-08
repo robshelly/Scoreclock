@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		844482A920A1D95B00FAF5A5 /* digital-7 (mono).ttf in Resources */ = {isa = PBXBuildFile; fileRef = 844482A820A1D95B00FAF5A5 /* digital-7 (mono).ttf */; };
+		84A55D5120921FAE00CE9155 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A55D5020921FAE00CE9155 /* Game.swift */; };
 		84C1C0F9207FA977000782F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C1C0F8207FA977000782F4 /* AppDelegate.swift */; };
 		84C1C0FB207FA977000782F4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C1C0FA207FA977000782F4 /* ViewController.swift */; };
 		84C1C0FE207FA977000782F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84C1C0FC207FA977000782F4 /* Main.storyboard */; };
@@ -14,6 +16,7 @@
 		84C1C103207FA977000782F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84C1C101207FA977000782F4 /* LaunchScreen.storyboard */; };
 		84C1C10E207FA978000782F4 /* ScoreClockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C1C10D207FA978000782F4 /* ScoreClockTests.swift */; };
 		84C1C119207FA979000782F4 /* ScoreClockUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C1C118207FA979000782F4 /* ScoreClockUITests.swift */; };
+		84C1C128207FAB38000782F4 /* Segment7Standard.otf in Resources */ = {isa = PBXBuildFile; fileRef = 84C1C127207FAB38000782F4 /* Segment7Standard.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		844482A820A1D95B00FAF5A5 /* digital-7 (mono).ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "digital-7 (mono).ttf"; sourceTree = "<group>"; };
+		84A55D5020921FAE00CE9155 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		84C1C0F5207FA977000782F4 /* ScoreClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScoreClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C1C0F8207FA977000782F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84C1C0FA207FA977000782F4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +52,7 @@
 		84C1C114207FA979000782F4 /* ScoreClockUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScoreClockUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C1C118207FA979000782F4 /* ScoreClockUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreClockUITests.swift; sourceTree = "<group>"; };
 		84C1C11A207FA979000782F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84C1C127207FAB38000782F4 /* Segment7Standard.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Segment7Standard.otf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,8 +84,8 @@
 			isa = PBXGroup;
 			children = (
 				84C1C0F7207FA977000782F4 /* ScoreClock */,
+				84C1C126207FAB08000782F4 /* fonts */,
 				84C1C10C207FA978000782F4 /* ScoreClockTests */,
-				84C1C117207FA979000782F4 /* ScoreClockUITests */,
 				84C1C0F6207FA977000782F4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -103,6 +109,7 @@
 				84C1C0FF207FA977000782F4 /* Assets.xcassets */,
 				84C1C101207FA977000782F4 /* LaunchScreen.storyboard */,
 				84C1C104207FA977000782F4 /* Info.plist */,
+				84A55D5020921FAE00CE9155 /* Game.swift */,
 			);
 			path = ScoreClock;
 			sourceTree = "<group>";
@@ -110,6 +117,7 @@
 		84C1C10C207FA978000782F4 /* ScoreClockTests */ = {
 			isa = PBXGroup;
 			children = (
+				84C1C117207FA979000782F4 /* ScoreClockUITests */,
 				84C1C10D207FA978000782F4 /* ScoreClockTests.swift */,
 				84C1C10F207FA979000782F4 /* Info.plist */,
 			);
@@ -123,6 +131,15 @@
 				84C1C11A207FA979000782F4 /* Info.plist */,
 			);
 			path = ScoreClockUITests;
+			sourceTree = "<group>";
+		};
+		84C1C126207FAB08000782F4 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				844482A820A1D95B00FAF5A5 /* digital-7 (mono).ttf */,
+				84C1C127207FAB38000782F4 /* Segment7Standard.otf */,
+			);
+			path = fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,6 +251,8 @@
 			files = (
 				84C1C103207FA977000782F4 /* LaunchScreen.storyboard in Resources */,
 				84C1C100207FA977000782F4 /* Assets.xcassets in Resources */,
+				84C1C128207FAB38000782F4 /* Segment7Standard.otf in Resources */,
+				844482A920A1D95B00FAF5A5 /* digital-7 (mono).ttf in Resources */,
 				84C1C0FE207FA977000782F4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84C1C0FB207FA977000782F4 /* ViewController.swift in Sources */,
+				84A55D5120921FAE00CE9155 /* Game.swift in Sources */,
 				84C1C0F9207FA977000782F4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
