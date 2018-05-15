@@ -41,7 +41,7 @@
                                                             <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="scoreHomeGoal:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QMs-zH-E1q"/>
+                                                            <action selector="scoreHomeGoal:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EWf-94-YJl"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nz8-Rb-Cdi">
@@ -63,7 +63,7 @@
                                                             <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="ScoreAwayGoal:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AYG-Bb-x59"/>
+                                                            <action selector="scoreAwayGoal:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ROY-V0-73y"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -131,11 +131,110 @@
                         <outlet property="awayGoalLabel" destination="Pkb-je-ePf" id="zgp-Mz-hcU"/>
                         <outlet property="homeGoalLabel" destination="ov5-E2-eyP" id="p1h-7Y-ueg"/>
                         <outlet property="timeLabel" destination="Nz8-Rb-Cdi" id="An7-cF-cA4"/>
+                        <segue destination="S8i-Nh-Sv2" kind="show" identifier="goal" id="dpK-fB-KNg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="25.637181409295355" y="13.6"/>
+            <point key="canvasLocation" x="26" y="-105"/>
+        </scene>
+        <!--GoalVC-->
+        <scene sceneID="GlP-Y4-S72">
+            <objects>
+                <viewController id="S8i-Nh-Sv2" customClass="GoalVC" customModule="ScoreClock" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bQg-cb-K8t">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3xz-fz-B4m">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cMb-7i-Bul">
+                                        <rect key="frame" x="0.0" y="0.0" width="667" height="187.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ckG-OJ-MrI">
+                                        <rect key="frame" x="0.0" y="187.5" width="667" height="187.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="zCb-3S-aXa">
+                                                <rect key="frame" x="100" y="10" width="467" height="135"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KQa-4Z-lCh" userLabel="Scorer">
+                                                        <rect key="frame" x="0.0" y="0.0" width="467" height="45"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wRi-Oq-yvu" userLabel="AssistFirst">
+                                                        <rect key="frame" x="0.0" y="45" width="467" height="45"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q9L-Ss-kdS" userLabel="AssistSecond">
+                                                        <rect key="frame" x="0.0" y="90" width="467" height="45"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6AP-tC-ViZ">
+                                                <rect key="frame" x="0.0" y="155" width="667" height="32"/>
+                                                <items>
+                                                    <barButtonItem title="Save" id="gSr-7t-O7T" userLabel="Save">
+                                                        <connections>
+                                                            <action selector="saveGoal:" destination="S8i-Nh-Sv2" id="RQA-Fl-jSh"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="ltz-NB-3MG"/>
+                                                    <barButtonItem title="Save &amp; Share" id="Cif-mv-aOt" userLabel="Save &amp; Share"/>
+                                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="ME1-tI-oyR"/>
+                                                    <barButtonItem title="Cancel" id="8Ii-P7-ifZ" userLabel="Cancel">
+                                                        <connections>
+                                                            <action selector="cancel:" destination="S8i-Nh-Sv2" id="Y3v-VV-vl7"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                </items>
+                                            </toolbar>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="zCb-3S-aXa" secondAttribute="trailing" constant="100" id="Ex1-ns-qEJ"/>
+                                            <constraint firstItem="zCb-3S-aXa" firstAttribute="leading" secondItem="ckG-OJ-MrI" secondAttribute="leading" constant="100" id="G2d-LI-I3k"/>
+                                            <constraint firstItem="6AP-tC-ViZ" firstAttribute="top" secondItem="zCb-3S-aXa" secondAttribute="bottom" constant="10" id="O9V-y7-7Qz"/>
+                                            <constraint firstAttribute="trailing" secondItem="6AP-tC-ViZ" secondAttribute="trailing" id="QZZ-xc-3Dg"/>
+                                            <constraint firstItem="zCb-3S-aXa" firstAttribute="top" secondItem="ckG-OJ-MrI" secondAttribute="top" constant="10" id="S4u-80-Vo7"/>
+                                            <constraint firstItem="6AP-tC-ViZ" firstAttribute="leading" secondItem="ckG-OJ-MrI" secondAttribute="leading" id="WXo-fu-UJh"/>
+                                            <constraint firstAttribute="bottom" secondItem="6AP-tC-ViZ" secondAttribute="bottom" id="k2q-7b-EEu"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="ckG-OJ-MrI" firstAttribute="height" secondItem="3xz-fz-B4m" secondAttribute="height" multiplier="0.5" id="SGb-De-cHW"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="CPC-jF-0Gm" firstAttribute="bottom" secondItem="3xz-fz-B4m" secondAttribute="bottom" id="7eT-Qp-17R"/>
+                            <constraint firstItem="3xz-fz-B4m" firstAttribute="leading" secondItem="CPC-jF-0Gm" secondAttribute="leading" id="U3O-6R-Amf"/>
+                            <constraint firstItem="3xz-fz-B4m" firstAttribute="top" secondItem="CPC-jF-0Gm" secondAttribute="top" id="Z2O-Cw-Dmt"/>
+                            <constraint firstItem="CPC-jF-0Gm" firstAttribute="trailing" secondItem="3xz-fz-B4m" secondAttribute="trailing" id="hYf-fR-Gdk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="CPC-jF-0Gm"/>
+                    </view>
+                    <connections>
+                        <outlet property="assist1" destination="wRi-Oq-yvu" id="PVM-7K-vyC"/>
+                        <outlet property="assist2" destination="Q9L-Ss-kdS" id="Oue-vt-dNd"/>
+                        <outlet property="scorer" destination="KQa-4Z-lCh" id="zVz-Jc-juX"/>
+                        <segue destination="ibP-sr-odT" kind="unwind" identifier="exitGoal" unwindAction="didUnwindFromGoalVc:" id="6if-DH-Sqx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jfI-lt-mak" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ibP-sr-odT" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="26" y="894"/>
         </scene>
     </scenes>
 </document>

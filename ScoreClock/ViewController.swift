@@ -12,6 +12,9 @@
 // https://medium.com/ios-os-x-development/build-an-stopwatch-with-swift-3-0-c7040818a10f
 // Sending Tweets
 // https://www.youtube.com/watch?v=B_x-ccc8Iuc
+// Segue
+// https://www.youtube.com/watch?v=XjBqKaGiZws
+// https://stackoverflow.com/a/42856839
 
 import UIKit
 import Social
@@ -26,14 +29,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        game = Game(homeGoals: 0, awayGoals: 0)
+        game = Game()
         
         let btnLabels:[UILabel] = [timeLabel.titleLabel!, homeGoalLabel.titleLabel!, awayGoalLabel.titleLabel!]
         formatBtnLabels(btnLabels: btnLabels)
         
         timeLabel.setTitle(timeString(time: gameTime), for: .normal)
-        homeGoalLabel.setTitle(String(format: "%02d", game.homeGoals), for: .normal)
-        awayGoalLabel.setTitle(String(format: "%02d", game.awayGoals), for: .normal)
+        updateGoalLabels()
+    }
+    
+    func updateGoalLabels() {
+        homeGoalLabel.setTitle(String(format: "%02d", game.homeGoals.count), for: .normal)
+        awayGoalLabel.setTitle(String(format: "%02d", game.awayGoals.count), for: .normal)
     }
     
     @IBOutlet weak var timeLabel: UIButton!
@@ -101,52 +108,69 @@ class ViewController: UIViewController {
         present(activityController, animated: true,  completion: nil)
     }
     
+//    
+//    func scoreGoal(team: String) {
+//        
+//        // Using popup box to get info from user
+//        // https://stackoverflow.com/questions/26567413/get-input-value-from-textfield-in-ios-alert-in-swift
+//        let alert = UIAlertController(title: "Goal!", message: "Enter Player Number", preferredStyle: .alert)
+//        alert.addTextField { (player) in
+//            player.text = "Player"
+//        }
+//        alert.addAction(UIAlertAction(title: "Add Goal", style: .default, handler: { [weak alert] (_) in
+//            let player = alert?.textFields![0].text
+//            self.recordGoal(team: "home", player: player!)
+//        }))
+//        alert.addAction(UIAlertAction(title: "Add Goal and Share", style: .default, handler: { [weak alert] (_) in
+//            let player = alert?.textFields![0].text
+//            self.recordGoal(team: "home", player: player!)
+//            self.shareGameStat(msg: "Goal Scored by \(player!)")
+//            
+//        }))
+//        self.present(alert, animated: true, completion: nil)
+//    }
+//    
+//    func recordGoal(team: String, player: String) {
+//        print("Goal Scored by: " + player)
+//        if (team == "home") {
+//            game.homeGoals += 1
+//            self.homeGoalLabel.setTitle(String(format: "%02d", game.homeGoals), for: .normal)
+//        } else {
+//            game.awayGoals += 1
+//            self.awayGoalLabel.setTitle(String(format: "%02d", game.awayGoals), for: .normal)
+//        }
+//    }
+//    
+//    func shareGameStat(msg: String) {
+//        let activityController = UIActivityViewController(activityItems: [msg],
+//                                                          applicationActivities: nil)
+//        present(activityController, animated: true,  completion: nil)
+//    }
+//
+    
     @IBAction func scoreHomeGoal(_ sender: Any) {
-        scoreGoal(team: "home")
+        performSegue(withIdentifier: "goal", sender: sender)
+    }
+    
+    @IBAction func scoreAwayGoal(_ sender: Any) {
+        performSegue(withIdentifier: "goal", sender: sender)
     }
     
     
-    @IBAction func ScoreAwayGoal(_ sender: Any) {
-        scoreGoal(team: "away")
-    }
-    
-    
-    func scoreGoal(team: String) {
-        
-        // Using popup box to get info from user
-        // https://stackoverflow.com/questions/26567413/get-input-value-from-textfield-in-ios-alert-in-swift
-        let alert = UIAlertController(title: "Goal!", message: "Enter Player Number", preferredStyle: .alert)
-        alert.addTextField { (player) in
-            player.text = "Player"
-        }
-        alert.addAction(UIAlertAction(title: "Add Goal", style: .default, handler: { [weak alert] (_) in
-            let player = alert?.textFields![0].text
-            self.recordGoal(team: "home", player: player!)
-        }))
-        alert.addAction(UIAlertAction(title: "Add Goal and Share", style: .default, handler: { [weak alert] (_) in
-            let player = alert?.textFields![0].text
-            self.recordGoal(team: "home", player: player!)
-            self.shareGameStat(msg: "Goal Scored by \(player!)")
-            
-        }))
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    func recordGoal(team: String, player: String) {
-        print("Goal Scored by: " + player)
-        if (team == "home") {
-            game.homeGoals += 1
-            self.homeGoalLabel.setTitle(String(format: "%02d", game.homeGoals), for: .normal)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let goalVC = segue.destination as? GoalVC else { return }
+        goalVC.scoringTeam = "home"
+        if (sender as! UIButton) == self.homeGoalLabel {
+            goalVC.scoringTeam = "home"
         } else {
-            game.awayGoals += 1
-            self.awayGoalLabel.setTitle(String(format: "%02d", game.awayGoals), for: .normal)
+            goalVC.scoringTeam = "away"
         }
+        
     }
     
-    func shareGameStat(msg: String) {
-        let activityController = UIActivityViewController(activityItems: [msg],
-                                                          applicationActivities: nil)
-        present(activityController, animated: true,  completion: nil)
+    @IBAction func didUnwindFromGoalVc(_ sender: UIStoryboardSegue) {
+        print("Unwinding")
+        updateGoalLabels()
     }
     
     func timeString(time:TimeInterval) -> String {

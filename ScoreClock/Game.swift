@@ -9,16 +9,27 @@
 import Foundation
 
 struct Game {
-    var homeGoals: Int
-    var awayGoals: Int
+    var homeTeam: String?
+    var awayTeam: String?
+    var homeGoals: [Goal]
+    var awayGoals: [Goal]
+    
+    // Optional initiialisation parameters
+    // https://medium.com/@sergueivinnitskii/easy-struct-initialization-in-swift-8ee46b8d84d5
+    init(homeTeam: String? = nil, awayTeam: String? = nil) {
+        self.homeTeam = homeTeam
+        self.awayTeam = awayTeam
+        homeGoals = []
+        awayGoals = []
+    }
 
 
-
-    mutating func goalScored(team: String) {
+    mutating func goalScored(team: String, scorer: String? = nil, assist1: String? = nil, assist2: String? = nil) {
         if team == "home" {
-            homeGoals += 1
+            homeGoals.append(Goal(scorer: scorer, assist1: assist1, assist2: assist2))
         } else {
-            awayGoals += 1
+            awayGoals.append(Goal(scorer: scorer, assist1: assist1, assist2: assist2))
         }
     }
+    
 }
