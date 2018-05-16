@@ -25,7 +25,13 @@ var gameClock:Timer = Timer()
 var isPlaying:Bool = false
 
 class ViewController: UIViewController {
-
+    
+    
+    @IBOutlet weak var btn: UIButton!
+    @IBOutlet weak var timeLabel: UIButton!
+    @IBOutlet weak var homeGoalLabel: UIButton!
+    @IBOutlet weak var awayGoalLabel: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,15 +44,92 @@ class ViewController: UIViewController {
         // Format some UI elements
         formatBtnLabels()
         updateGoalLabels()
+        
+        // Add actions for tap and hold to buttons
+        addButtonActions()
     }
-
-    @IBOutlet weak var timeLabel: UIButton!
-    @IBOutlet weak var homeGoalLabel: UIButton!
-    @IBOutlet weak var awayGoalLabel: UIButton!
+    
+    func addButtonActions() {
+        // Single button with two actions for tap and hold
+        // https://stackoverflow.com/a/30859297
+        // https://stackoverflow.com/a/36160191
+        // Execute only once on long press
+        // https://www.ioscreator.com/tutorials/long-press-gesture-ios-tutorial-ios11
+        
+        addHomeGoalActions()
+        addAwayGoalActions()
+        addTimeActions()
+    }
+    
+    func addHomeGoalActions() {
+        let tapHomeGoal = UITapGestureRecognizer(target: self, action: #selector(self.scoreHomeGoal))
+        let holdHomeGoal = UILongPressGestureRecognizer(target: self, action: #selector(self.deleteHomeGoal))
+        homeGoalLabel.addGestureRecognizer(tapHomeGoal)
+        homeGoalLabel.addGestureRecognizer(holdHomeGoal)
+    }
+    
+    func addAwayGoalActions() {
+        let tapAwayGoal = UITapGestureRecognizer(target: self, action: #selector(self.scoreAwayGoal))
+        let holdAwayGoal = UILongPressGestureRecognizer(target: self, action: #selector(self.deleteAwayGoal))
+        awayGoalLabel.addGestureRecognizer(tapAwayGoal)
+        awayGoalLabel.addGestureRecognizer(holdAwayGoal)
+    }
+    
+    func addTimeActions() {
+        let tapTime = UITapGestureRecognizer(target: self, action: #selector(self.toggleClock))
+        let holdTime = UILongPressGestureRecognizer(target: self, action: #selector(self.setClock))
+        timeLabel.addGestureRecognizer(tapTime)
+        timeLabel.addGestureRecognizer(holdTime)
+    }
+    
+    @objc func scoreHomeGoal() {
+        performSegue(withIdentifier: "goal", sender: homeGoalLabel)
+    }
+    
+    @objc func deleteHomeGoal(gesture: UILongPressGestureRecognizer) {
+        if gesture.state == UIGestureRecognizerState.began {
+            deleteGoal(team: "home")
+        }
+    }
+    
+    @objc func scoreAwayGoal() {
+        performSegue(withIdentifier: "goal", sender: awayGoalLabel)
+    }
+    
+    @objc func deleteAwayGoal(gesture: UILongPressGestureRecognizer) {
+        if gesture.state == UIGestureRecognizerState.began {
+            deleteGoal(team: "away")
+        }
+    }
+    
+    func deleteGoal(team: String) {
+        if team == "home" {
+            if game.homeGoals.count > 0 { game.homeGoals.removeLast() }
+        } else {
+            if game.awayGoals.count > 0 { game.awayGoals.removeLast() }
+        }
+        updateGoalLabels()
+    }
     
     func updateGoalLabels() {
         homeGoalLabel.setTitle(String(format: "%02d", game.homeGoals.count), for: .normal)
         awayGoalLabel.setTitle(String(format: "%02d", game.awayGoals.count), for: .normal)
+    }
+    
+    @objc func setClock(gesture: UILongPressGestureRecognizer) {
+        if gesture.state == UIGestureRecognizerState.began {
+            print("Set clock time")
+        }
+    }
+    
+    @objc func toggleClock() {
+        if isPlaying {
+            gameClock.invalidate()
+            isPlaying = false
+        } else {
+            gameClock = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(UpdateTimer), userInfo: nil, repeats: true)
+            isPlaying = true
+        }
     }
     
     func setBorderColours() {
@@ -94,15 +177,15 @@ class ViewController: UIViewController {
 //        timeLabel.setTitle(timeString(time: gameTime), for: .normal)
 //    }
     
-    @IBAction func toggleGameClock(_ sender: Any) {
-        if isPlaying {
-            gameClock.invalidate()
-            isPlaying = false
-        } else {
-        gameClock = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(UpdateTimer), userInfo: nil, repeats: true)
-            isPlaying = true
-        }
-    }
+//    @IBAction func toggleGameClock(_ sender: Any) {
+//        if isPlaying {
+//            gameClock.invalidate()
+//            isPlaying = false
+//        } else {
+//        gameClock = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(UpdateTimer), userInfo: nil, repeats: true)
+//            isPlaying = true
+//        }
+//    }
     
     @objc func UpdateTimer() {
         gameTime -= 1
@@ -114,15 +197,7 @@ class ViewController: UIViewController {
             timeLabel.layoutIfNeeded()
         }
     }
-    @IBAction func testTweet(_ sender: Any) {
-        // Tweeting using the Share functionality
-        // https://www.youtube.com/watch?v=KxPavuI4t8o
-        let activityController = UIActivityViewController(activityItems: ["Hello World"],
-                                                          applicationActivities: nil)
-        present(activityController, animated: true,  completion: nil)
-    }
-    
-//    
+
 //    func scoreGoal(team: String) {
 //        
 //        // Using popup box to get info from user
@@ -155,21 +230,11 @@ class ViewController: UIViewController {
 //        }
 //    }
 //    
-    func shareGameStat(msg: String) {
-        let activityController = UIActivityViewController(activityItems: [msg],
-                                                          applicationActivities: nil)
-        present(activityController, animated: true,  completion: nil)
-    }
-
-    
-    @IBAction func scoreHomeGoal(_ sender: Any) {
-        performSegue(withIdentifier: "goal", sender: sender)
-    }
-    
-    @IBAction func scoreAwayGoal(_ sender: Any) {
-        performSegue(withIdentifier: "goal", sender: sender)
-    }
-    
+//    func shareGameStat(msg: String) {
+//        let activityController = UIActivityViewController(activityItems: [msg],
+//                                                          applicationActivities: nil)
+//        present(activityController, animated: true,  completion: nil)
+//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let goalVC = segue.destination as? GoalVC else { return }

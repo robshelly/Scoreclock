@@ -57,9 +57,6 @@
                                                                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="2"/>
                                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                                                                 </userDefinedRuntimeAttributes>
-                                                                                <connections>
-                                                                                    <action selector="scoreHomeGoal:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EWf-94-YJl"/>
-                                                                                </connections>
                                                                             </button>
                                                                         </subviews>
                                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -106,9 +103,6 @@
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="2"/>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                                                 </userDefinedRuntimeAttributes>
-                                                                <connections>
-                                                                    <action selector="toggleGameClock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1bS-DH-pB4"/>
-                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -140,9 +134,6 @@
                                                                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="2"/>
                                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                                                                 </userDefinedRuntimeAttributes>
-                                                                                <connections>
-                                                                                    <action selector="scoreAwayGoal:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ROY-V0-73y"/>
-                                                                                </connections>
                                                                             </button>
                                                                         </subviews>
                                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -202,9 +193,6 @@
                                                 <rect key="frame" x="437" y="90" width="46" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Button"/>
-                                                <connections>
-                                                    <action selector="test:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QyS-23-36H"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -231,6 +219,7 @@
                     </view>
                     <connections>
                         <outlet property="awayGoalLabel" destination="Pkb-je-ePf" id="zgp-Mz-hcU"/>
+                        <outlet property="btn" destination="9mM-Co-amD" id="yZW-vH-cnj"/>
                         <outlet property="homeGoalLabel" destination="ov5-E2-eyP" id="p1h-7Y-ueg"/>
                         <outlet property="timeLabel" destination="Nz8-Rb-Cdi" id="An7-cF-cA4"/>
                         <segue destination="S8i-Nh-Sv2" kind="show" identifier="goal" id="dpK-fB-KNg"/>
@@ -408,7 +397,7 @@
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wRi-Oq-yvu" userLabel="AssistFirst">
                                                         <rect key="frame" x="0.0" y="0.0" width="367" height="45"/>
                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="24"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
@@ -422,7 +411,7 @@
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q9L-Ss-kdS" userLabel="AssistSecond">
                                                         <rect key="frame" x="0.0" y="90" width="367" height="45"/>
                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="24"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
