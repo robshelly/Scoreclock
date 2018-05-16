@@ -111,14 +111,32 @@ class ViewController: UIViewController {
         updateGoalLabels()
     }
     
-    func updateGoalLabels() {
-        homeGoalLabel.setTitle(String(format: "%02d", game.homeGoals.count), for: .normal)
-        awayGoalLabel.setTitle(String(format: "%02d", game.awayGoals.count), for: .normal)
-    }
-    
     @objc func setClock(gesture: UILongPressGestureRecognizer) {
         if gesture.state == UIGestureRecognizerState.began {
-            print("Set clock time")
+            // User input from alert box
+            // https://stackoverflow.com/a/26567485
+            let alert = UIAlertController(title: "Set Time", message: "Set period time (minutes)", preferredStyle: .alert)
+
+            alert.addTextField { (minutes) in
+                minutes.text = "20"
+            }
+            
+            // 3. Grab the value from the text field, and print it when the user clicks OK.
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+                let minutes = alert?.textFields![0].text // Force unwrapping because we know it exists.
+                // Gettings Doubl from optional string
+                // https://stackoverflow.com/a/46989179
+                guard let minutesString = minutes else { return }
+                let mins = Double(minutesString)
+                if (mins != nil) {
+                    self.setGameClock(time: mins!)
+                } else {
+                    print("Wrong input")
+                }
+            }))
+            
+            // 4. Present the alert.
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
@@ -156,39 +174,24 @@ class ViewController: UIViewController {
         setBorderColours()
     }
     
-//    @IBAction func startTimer(_ sender: Any) {
-//        if(isPlaying) {
-//            return
-//        }
-//        gameClock = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(UpdateTimer), userInfo: nil, repeats: true)
-//        isPlaying = true
-//    }
-//
-//    @IBAction func pauseTimer(_ sender: Any) {
-//        gameClock.invalidate()
-//        isPlaying = false
-//    }
-//
-//    @IBAction func resetTimer(_ sender: Any) {
-//
-//        gameClock.invalidate()
-//        isPlaying = false
-//        gameTime = 1200
-//        timeLabel.setTitle(timeString(time: gameTime), for: .normal)
-//    }
+    func updateGoalLabels() {
+        homeGoalLabel.setTitle(String(format: "%02d", game.homeGoals.count), for: .normal)
+        awayGoalLabel.setTitle(String(format: "%02d", game.awayGoals.count), for: .normal)
+    }
     
-//    @IBAction func toggleGameClock(_ sender: Any) {
-//        if isPlaying {
-//            gameClock.invalidate()
-//            isPlaying = false
-//        } else {
-//        gameClock = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(UpdateTimer), userInfo: nil, repeats: true)
-//            isPlaying = true
-//        }
-//    }
+    func setGameClock(time: TimeInterval) {
+        gameClock.invalidate()
+        gameTime = time * 60
+        timeLabel.setTitle(Utilities.timeString(time: gameTime), for: .normal)
+    }
     
     @objc func UpdateTimer() {
         gameTime -= 1
+        
+        if gameTime == 0 {
+            gameClock.invalidate()
+            // TODO other stuff too
+        }
         
         // Prevent button flashing when text updates
         // https://stackoverflow.com/a/39071660
@@ -197,44 +200,6 @@ class ViewController: UIViewController {
             timeLabel.layoutIfNeeded()
         }
     }
-
-//    func scoreGoal(team: String) {
-//        
-//        // Using popup box to get info from user
-//        // https://stackoverflow.com/questions/26567413/get-input-value-from-textfield-in-ios-alert-in-swift
-//        let alert = UIAlertController(title: "Goal!", message: "Enter Player Number", preferredStyle: .alert)
-//        alert.addTextField { (player) in
-//            player.text = "Player"
-//        }
-//        alert.addAction(UIAlertAction(title: "Add Goal", style: .default, handler: { [weak alert] (_) in
-//            let player = alert?.textFields![0].text
-//            self.recordGoal(team: "home", player: player!)
-//        }))
-//        alert.addAction(UIAlertAction(title: "Add Goal and Share", style: .default, handler: { [weak alert] (_) in
-//            let player = alert?.textFields![0].text
-//            self.recordGoal(team: "home", player: player!)
-//            self.shareGameStat(msg: "Goal Scored by \(player!)")
-//            
-//        }))
-//        self.present(alert, animated: true, completion: nil)
-//    }
-//    
-//    func recordGoal(team: String, player: String) {
-//        print("Goal Scored by: " + player)
-//        if (team == "home") {
-//            game.homeGoals += 1
-//            self.homeGoalLabel.setTitle(String(format: "%02d", game.homeGoals), for: .normal)
-//        } else {
-//            game.awayGoals += 1
-//            self.awayGoalLabel.setTitle(String(format: "%02d", game.awayGoals), for: .normal)
-//        }
-//    }
-//    
-//    func shareGameStat(msg: String) {
-//        let activityController = UIActivityViewController(activityItems: [msg],
-//                                                          applicationActivities: nil)
-//        present(activityController, animated: true,  completion: nil)
-//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let goalVC = segue.destination as? GoalVC else { return }
