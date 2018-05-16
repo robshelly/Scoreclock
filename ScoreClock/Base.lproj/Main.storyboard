@@ -14,6 +14,9 @@
         <array key="digital-7 (mono).ttf">
             <string>Digital-7Mono</string>
         </array>
+        <array key="digital-7.ttf">
+            <string>Digital-7</string>
+        </array>
     </customFonts>
     <scenes>
         <!--View Controller-->
@@ -107,12 +110,6 @@
                                             <constraint firstAttribute="bottom" secondItem="eaB-Ct-weQ" secondAttribute="bottom" id="rI7-WH-3PK"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gb2-TF-pVy">
-                                        <rect key="frame" x="0.0" y="375" width="667" height="0.0"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="bYR-bs-1Et" firstAttribute="height" secondItem="gHT-ql-xYj" secondAttribute="height" multiplier="0.5" id="LbH-LB-7WP"/>
@@ -157,51 +154,65 @@
                                         <rect key="frame" x="0.0" y="187.5" width="667" height="187.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="zCb-3S-aXa">
-                                                <rect key="frame" x="100" y="10" width="467" height="135"/>
+                                                <rect key="frame" x="150" y="10" width="367" height="135"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KQa-4Z-lCh" userLabel="Scorer">
-                                                        <rect key="frame" x="0.0" y="0.0" width="467" height="45"/>
-                                                        <nil key="textColor"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="367" height="45"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="24"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wRi-Oq-yvu" userLabel="AssistFirst">
-                                                        <rect key="frame" x="0.0" y="45" width="467" height="45"/>
+                                                        <rect key="frame" x="0.0" y="45" width="367" height="45"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="textColor"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="24"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q9L-Ss-kdS" userLabel="AssistSecond">
-                                                        <rect key="frame" x="0.0" y="90" width="467" height="45"/>
+                                                        <rect key="frame" x="0.0" y="90" width="367" height="45"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="textColor"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="24"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
                                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6AP-tC-ViZ">
                                                 <rect key="frame" x="0.0" y="155" width="667" height="32"/>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <items>
+                                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="gOA-dX-Oey"/>
+                                                    <barButtonItem title="Share" id="Cif-mv-aOt" userLabel="Share">
+                                                        <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <connections>
+                                                            <action selector="share:" destination="S8i-Nh-Sv2" id="seX-g5-jRr"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="ltz-NB-3MG"/>
                                                     <barButtonItem title="Save" id="gSr-7t-O7T" userLabel="Save">
+                                                        <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <connections>
                                                             <action selector="saveGoal:" destination="S8i-Nh-Sv2" id="RQA-Fl-jSh"/>
                                                         </connections>
                                                     </barButtonItem>
-                                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="ltz-NB-3MG"/>
-                                                    <barButtonItem title="Save &amp; Share" id="Cif-mv-aOt" userLabel="Save &amp; Share"/>
                                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="ME1-tI-oyR"/>
                                                     <barButtonItem title="Cancel" id="8Ii-P7-ifZ" userLabel="Cancel">
+                                                        <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <connections>
                                                             <action selector="cancel:" destination="S8i-Nh-Sv2" id="Y3v-VV-vl7"/>
                                                         </connections>
                                                     </barButtonItem>
+                                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="eel-aO-Wr5"/>
                                                 </items>
+                                                <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </toolbar>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="zCb-3S-aXa" secondAttribute="trailing" constant="100" id="Ex1-ns-qEJ"/>
-                                            <constraint firstItem="zCb-3S-aXa" firstAttribute="leading" secondItem="ckG-OJ-MrI" secondAttribute="leading" constant="100" id="G2d-LI-I3k"/>
+                                            <constraint firstAttribute="trailing" secondItem="zCb-3S-aXa" secondAttribute="trailing" constant="150" id="Ex1-ns-qEJ"/>
+                                            <constraint firstItem="zCb-3S-aXa" firstAttribute="leading" secondItem="ckG-OJ-MrI" secondAttribute="leading" constant="150" id="G2d-LI-I3k"/>
                                             <constraint firstItem="6AP-tC-ViZ" firstAttribute="top" secondItem="zCb-3S-aXa" secondAttribute="bottom" constant="10" id="O9V-y7-7Qz"/>
                                             <constraint firstAttribute="trailing" secondItem="6AP-tC-ViZ" secondAttribute="trailing" id="QZZ-xc-3Dg"/>
                                             <constraint firstItem="zCb-3S-aXa" firstAttribute="top" secondItem="ckG-OJ-MrI" secondAttribute="top" constant="10" id="S4u-80-Vo7"/>
@@ -227,7 +238,10 @@
                     <connections>
                         <outlet property="assist1" destination="wRi-Oq-yvu" id="PVM-7K-vyC"/>
                         <outlet property="assist2" destination="Q9L-Ss-kdS" id="Oue-vt-dNd"/>
+                        <outlet property="cancel" destination="8Ii-P7-ifZ" id="cLr-PC-vuC"/>
+                        <outlet property="save" destination="gSr-7t-O7T" id="aAL-c0-OeC"/>
                         <outlet property="scorer" destination="KQa-4Z-lCh" id="zVz-Jc-juX"/>
+                        <outlet property="share" destination="Cif-mv-aOt" id="IOY-vk-dA1"/>
                         <segue destination="ibP-sr-odT" kind="unwind" identifier="exitGoal" unwindAction="didUnwindFromGoalVc:" id="6if-DH-Sqx"/>
                     </connections>
                 </viewController>

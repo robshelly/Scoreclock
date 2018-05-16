@@ -48,8 +48,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var awayGoalLabel: UIButton!
     
     func formatBtnLabels(btnLabels: [UILabel]) {
-        print("Formatting buttons")
-        
         for lbl in btnLabels {
             lbl.numberOfLines = 1
             lbl.adjustsFontSizeToFitWidth = true
@@ -141,12 +139,12 @@ class ViewController: UIViewController {
 //        }
 //    }
 //    
-//    func shareGameStat(msg: String) {
-//        let activityController = UIActivityViewController(activityItems: [msg],
-//                                                          applicationActivities: nil)
-//        present(activityController, animated: true,  completion: nil)
-//    }
-//
+    func shareGameStat(msg: String) {
+        let activityController = UIActivityViewController(activityItems: [msg],
+                                                          applicationActivities: nil)
+        present(activityController, animated: true,  completion: nil)
+    }
+
     
     @IBAction func scoreHomeGoal(_ sender: Any) {
         performSegue(withIdentifier: "goal", sender: sender)
@@ -169,8 +167,10 @@ class ViewController: UIViewController {
     }
     
     @IBAction func didUnwindFromGoalVc(_ sender: UIStoryboardSegue) {
-        print("Unwinding")
-        updateGoalLabels()
+//        guard let goalVC = sender.source as? GoalVC else { return }
+//        let stat = goalVC.goalStat
+//        shareGameStat(msg: stat)
+//        updateGoalLabels()
     }
     
     func timeString(time:TimeInterval) -> String {

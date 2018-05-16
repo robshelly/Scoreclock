@@ -14,9 +14,9 @@ struct Game {
     var homeGoals: [Goal]
     var awayGoals: [Goal]
     
-    // Optional initiialisation parameters
+    // Optional initialisation parameters
     // https://medium.com/@sergueivinnitskii/easy-struct-initialization-in-swift-8ee46b8d84d5
-    init(homeTeam: String? = nil, awayTeam: String? = nil) {
+    init(homeTeam: String? = "Home", awayTeam: String? = "Away") {
         self.homeTeam = homeTeam
         self.awayTeam = awayTeam
         homeGoals = []
