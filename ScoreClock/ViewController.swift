@@ -28,11 +28,13 @@ var sounds:Bool = true
 
 class ViewController: UIViewController {
     
-    
-    @IBOutlet weak var btn: UIButton!
     @IBOutlet weak var timeLabel: UIButton!
     @IBOutlet weak var homeGoalLabel: UIButton!
     @IBOutlet weak var awayGoalLabel: UIButton!
+    @IBOutlet weak var homePenaltyOne: UIButton!
+    @IBOutlet weak var homePenaltyTwo: UIButton!
+    @IBOutlet weak var awayPenaltyOne: UIButton!
+    @IBOutlet weak var awayPenaltyTwo: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +44,9 @@ class ViewController: UIViewController {
         
         // Format Game clock
         timeLabel.setTitle(Utilities.timeString(time: gameTime), for: .normal)
+        
+        // Initialise Penalties
+        intialisePenalties()
         
         // Format some UI elements
         formatBtnLabels()
@@ -159,13 +164,29 @@ class ViewController: UIViewController {
         // See https://stackoverflow.com/a/15010440
         // Other border attributes set in User Defined Runtime Attributes
         // https://stackoverflow.com/a/30091664
-        for btn in [timeLabel, homeGoalLabel, awayGoalLabel] {
+        for btn in [
+            timeLabel,
+            homeGoalLabel,
+            awayGoalLabel,
+            homePenaltyOne,
+            homePenaltyTwo,
+            awayPenaltyOne,
+            awayPenaltyTwo
+        ] {
             btn?.layer.borderColor = UIColor.white.cgColor
         }
     }
     
     func formatBtnLabels() {
-        let btnLabels:[UILabel] = [timeLabel.titleLabel!, homeGoalLabel.titleLabel!, awayGoalLabel.titleLabel!]
+        let btnLabels:[UILabel] = [
+            timeLabel.titleLabel!,
+            homeGoalLabel.titleLabel!,
+            awayGoalLabel.titleLabel!,
+            homePenaltyOne.titleLabel!,
+            homePenaltyTwo.titleLabel!,
+            awayPenaltyOne.titleLabel!,
+            awayPenaltyTwo.titleLabel!
+        ]
         for lbl in btnLabels {
             lbl.numberOfLines = 1
             lbl.adjustsFontSizeToFitWidth = true
@@ -187,6 +208,13 @@ class ViewController: UIViewController {
         gameClock.invalidate()
         gameTime = time * 60
         timeLabel.setTitle(Utilities.timeString(time: gameTime), for: .normal)
+    }
+    
+    func intialisePenalties() {
+        homePenaltyOne.setTitle(Utilities.timeString(time: 0), for: UIControlState.normal)
+        homePenaltyTwo.setTitle(Utilities.timeString(time: 0), for: UIControlState.normal)
+        awayPenaltyOne.setTitle(Utilities.timeString(time: 0), for: UIControlState.normal)
+        awayPenaltyTwo.setTitle(Utilities.timeString(time: 0), for: UIControlState.normal)
     }
     
     func playPeriodEndHorn() {
