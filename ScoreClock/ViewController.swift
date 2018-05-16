@@ -17,12 +17,14 @@
 // https://stackoverflow.com/a/42856839
 
 import UIKit
-import Social
+import AVFoundation
 
 var game: Game!
 var gameTime:TimeInterval = 1200
 var gameClock:Timer = Timer()
 var isPlaying:Bool = false
+var soundsEffect: AVAudioPlayer?
+var sounds:Bool = true
 
 class ViewController: UIViewController {
     
@@ -83,6 +85,7 @@ class ViewController: UIViewController {
     }
     
     @objc func scoreHomeGoal() {
+        if sounds { playGoalHorn() }
         performSegue(withIdentifier: "goal", sender: homeGoalLabel)
     }
     
@@ -93,6 +96,7 @@ class ViewController: UIViewController {
     }
     
     @objc func scoreAwayGoal() {
+        if sounds { playGoalHorn() }
         performSegue(withIdentifier: "goal", sender: awayGoalLabel)
     }
     
@@ -185,11 +189,38 @@ class ViewController: UIViewController {
         timeLabel.setTitle(Utilities.timeString(time: gameTime), for: .normal)
     }
     
+    func playPeriodEndHorn() {
+        // Play Sounds with AVFoundation
+        // https://www.hackingwithswift.com/example-code/media/how-to-play-sounds-using-avaudioplayer
+        let path = Bundle.main.path(forResource: "PeriodHorn.m4a", ofType:nil)!
+        let url = URL(fileURLWithPath: path)
+        do {
+            soundsEffect = try AVAudioPlayer(contentsOf: url)
+            soundsEffect?.play()
+        } catch {
+            // No file... ok just no sounds
+        }
+    }
+    
+    func playGoalHorn() {
+        // Play Sounds with AVFoundation
+        // https://www.hackingwithswift.com/example-code/media/how-to-play-sounds-using-avaudioplayer
+        let path = Bundle.main.path(forResource: "GoalHorn.m4a", ofType:nil)!
+        let url = URL(fileURLWithPath: path)
+        do {
+            soundsEffect = try AVAudioPlayer(contentsOf: url)
+            soundsEffect?.play()
+        } catch {
+            // No file... ok just no sounds
+        }
+    }
+    
     @objc func UpdateTimer() {
         gameTime -= 1
         
         if gameTime == 0 {
             gameClock.invalidate()
+            if sounds { playPeriodEndHorn() }
             // TODO other stuff too
         }
         
