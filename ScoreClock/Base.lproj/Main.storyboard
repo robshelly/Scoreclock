@@ -30,49 +30,154 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gHT-ql-xYj">
                                 <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h1j-hc-318">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h1j-hc-318" userLabel="TimeandScore">
                                         <rect key="frame" x="0.0" y="0.0" width="667" height="187.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3jz-ib-X4E">
                                                 <rect key="frame" x="0.0" y="0.0" width="667" height="187.5"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ov5-E2-eyP">
-                                                        <rect key="frame" x="0.0" y="0.0" width="195" height="187.5"/>
-                                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        <fontDescription key="fontDescription" name="Digital-7Mono" family="Digital-7 Mono" pointSize="17"/>
-                                                        <state key="normal" title="HomeGoals">
-                                                            <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="scoreHomeGoal:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EWf-94-YJl"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nz8-Rb-Cdi">
-                                                        <rect key="frame" x="195" y="0.0" width="277.5" height="187.5"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lqu-Lb-v9V" userLabel="Home Goals">
+                                                        <rect key="frame" x="0.0" y="0.0" width="178" height="187.5"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1Rj-dx-0JX">
+                                                                <rect key="frame" x="0.0" y="0.0" width="178" height="187.5"/>
+                                                                <subviews>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jgs-iH-zEB">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="178" height="125"/>
+                                                                        <subviews>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ov5-E2-eyP">
+                                                                                <rect key="frame" x="50" y="15" width="78" height="85"/>
+                                                                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                                <fontDescription key="fontDescription" name="Digital-7Mono" family="Digital-7 Mono" pointSize="17"/>
+                                                                                <state key="normal" title="HomeGoals">
+                                                                                    <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                </state>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="8"/>
+                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="2"/>
+                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                                                </userDefinedRuntimeAttributes>
+                                                                                <connections>
+                                                                                    <action selector="scoreHomeGoal:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EWf-94-YJl"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                        </subviews>
+                                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="trailing" secondItem="ov5-E2-eyP" secondAttribute="trailing" constant="50" id="dKp-Vf-NUP"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="ov5-E2-eyP" secondAttribute="bottom" constant="25" id="h2P-Jx-Boi"/>
+                                                                            <constraint firstItem="ov5-E2-eyP" firstAttribute="top" secondItem="Jgs-iH-zEB" secondAttribute="top" constant="15" id="vSN-Cs-iyW"/>
+                                                                            <constraint firstItem="ov5-E2-eyP" firstAttribute="leading" secondItem="Jgs-iH-zEB" secondAttribute="leading" constant="50" id="vd7-JS-93n"/>
+                                                                        </constraints>
+                                                                    </view>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="saG-Ax-3Px">
+                                                                        <rect key="frame" x="0.0" y="125" width="178" height="62.5"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="48"/>
+                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstItem="saG-Ax-3Px" firstAttribute="height" secondItem="Jgs-iH-zEB" secondAttribute="height" multiplier="0.5" id="4pV-st-6mJ"/>
+                                                                </constraints>
+                                                            </stackView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstItem="1Rj-dx-0JX" firstAttribute="leading" secondItem="lqu-Lb-v9V" secondAttribute="leading" id="5C7-kK-pdu"/>
+                                                            <constraint firstAttribute="bottom" secondItem="1Rj-dx-0JX" secondAttribute="bottom" id="LwF-HP-IbZ"/>
+                                                            <constraint firstItem="1Rj-dx-0JX" firstAttribute="top" secondItem="lqu-Lb-v9V" secondAttribute="top" id="ac5-qs-riA"/>
+                                                            <constraint firstAttribute="trailing" secondItem="1Rj-dx-0JX" secondAttribute="trailing" id="nZb-Xq-hwm"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iWi-Yu-0nw" userLabel="Time">
+                                                        <rect key="frame" x="178" y="0.0" width="311" height="187.5"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nz8-Rb-Cdi">
+                                                                <rect key="frame" x="10" y="15" width="291" height="122.5"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <fontDescription key="fontDescription" name="Digital-7Mono" family="Digital-7 Mono" pointSize="17"/>
+                                                                <state key="normal" title="GameClock">
+                                                                    <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="8"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="2"/>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="toggleGameClock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1bS-DH-pB4"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" name="Digital-7Mono" family="Digital-7 Mono" pointSize="17"/>
-                                                        <state key="normal" title="GameClock">
-                                                            <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="toggleGameClock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1bS-DH-pB4"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pkb-je-ePf">
-                                                        <rect key="frame" x="472.5" y="0.0" width="194.5" height="187.5"/>
-                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" name="Digital-7Mono" family="Digital-7 Mono" pointSize="17"/>
-                                                        <state key="normal" title="AwayGoals">
-                                                            <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="scoreAwayGoal:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ROY-V0-73y"/>
-                                                        </connections>
-                                                    </button>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="Nz8-Rb-Cdi" secondAttribute="bottom" constant="50" id="G16-qp-QUl"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Nz8-Rb-Cdi" secondAttribute="trailing" constant="10" id="VFb-df-ueQ"/>
+                                                            <constraint firstItem="Nz8-Rb-Cdi" firstAttribute="leading" secondItem="iWi-Yu-0nw" secondAttribute="leading" constant="10" id="oJK-zZ-6tV"/>
+                                                            <constraint firstItem="Nz8-Rb-Cdi" firstAttribute="top" secondItem="iWi-Yu-0nw" secondAttribute="top" constant="15" id="y7f-8W-w7n"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="brO-00-HHM" userLabel="Away Goals">
+                                                        <rect key="frame" x="489" y="0.0" width="178" height="187.5"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bhQ-3A-cNb">
+                                                                <rect key="frame" x="0.0" y="0.0" width="178" height="187.5"/>
+                                                                <subviews>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6t1-96-cT5">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="178" height="125"/>
+                                                                        <subviews>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pkb-je-ePf">
+                                                                                <rect key="frame" x="50" y="15" width="78" height="85"/>
+                                                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <fontDescription key="fontDescription" name="Digital-7Mono" family="Digital-7 Mono" pointSize="17"/>
+                                                                                <state key="normal" title="AwayGoals">
+                                                                                    <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                </state>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="8"/>
+                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="2"/>
+                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                                                </userDefinedRuntimeAttributes>
+                                                                                <connections>
+                                                                                    <action selector="scoreAwayGoal:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ROY-V0-73y"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                        </subviews>
+                                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <constraints>
+                                                                            <constraint firstItem="Pkb-je-ePf" firstAttribute="leading" secondItem="6t1-96-cT5" secondAttribute="leading" constant="50" id="5n2-Rg-er3"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="Pkb-je-ePf" secondAttribute="bottom" constant="25" id="RNM-bY-fTF"/>
+                                                                            <constraint firstItem="Pkb-je-ePf" firstAttribute="top" secondItem="6t1-96-cT5" secondAttribute="top" constant="15" id="tmG-Ac-5g3"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="Pkb-je-ePf" secondAttribute="trailing" constant="50" id="vjh-mL-gQP"/>
+                                                                        </constraints>
+                                                                    </view>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Visitor" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qdb-FI-Ajk" userLabel="Away">
+                                                                        <rect key="frame" x="0.0" y="125" width="178" height="62.5"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="48"/>
+                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstItem="Qdb-FI-Ajk" firstAttribute="height" secondItem="6t1-96-cT5" secondAttribute="height" multiplier="0.5" id="ze6-e8-e3g"/>
+                                                                </constraints>
+                                                            </stackView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="bhQ-3A-cNb" secondAttribute="bottom" id="6Na-ii-w8h"/>
+                                                            <constraint firstItem="bhQ-3A-cNb" firstAttribute="top" secondItem="brO-00-HHM" secondAttribute="top" id="HKA-vU-Qcl"/>
+                                                            <constraint firstAttribute="trailing" secondItem="bhQ-3A-cNb" secondAttribute="trailing" id="iUR-p8-GQ5"/>
+                                                            <constraint firstItem="bhQ-3A-cNb" firstAttribute="leading" secondItem="brO-00-HHM" secondAttribute="leading" id="zXS-Tt-Bu5"/>
+                                                        </constraints>
+                                                    </view>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="Pkb-je-ePf" firstAttribute="width" secondItem="Nz8-Rb-Cdi" secondAttribute="width" multiplier="0.7" id="FyL-N0-U16"/>
-                                                    <constraint firstItem="Pkb-je-ePf" firstAttribute="width" secondItem="ov5-E2-eyP" secondAttribute="width" id="g8Q-bk-78k"/>
+                                                    <constraint firstItem="iWi-Yu-0nw" firstAttribute="width" secondItem="lqu-Lb-v9V" secondAttribute="width" multiplier="1.75" id="YQ7-Cy-alR"/>
+                                                    <constraint firstItem="lqu-Lb-v9V" firstAttribute="width" secondItem="brO-00-HHM" secondAttribute="width" id="d2Z-oH-qxZ"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
@@ -84,7 +189,7 @@
                                             <constraint firstAttribute="trailing" secondItem="3jz-ib-X4E" secondAttribute="trailing" id="pZs-ox-cS8"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bYR-bs-1Et">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bYR-bs-1Et" userLabel="PeriodPenalties">
                                         <rect key="frame" x="0.0" y="187.5" width="667" height="187.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Penalties" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eaB-Ct-weQ">
@@ -146,27 +251,171 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3xz-fz-B4m">
                                 <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cMb-7i-Bul">
-                                        <rect key="frame" x="0.0" y="0.0" width="667" height="187.5"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cMb-7i-Bul" userLabel="TimeandScore">
+                                        <rect key="frame" x="0.0" y="0.0" width="667" height="0.0"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ckG-OJ-MrI">
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WaF-pa-ASE">
+                                        <rect key="frame" x="0.0" y="0.0" width="667" height="187.5"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tQu-6M-tNT" userLabel="Home Goals">
+                                                <rect key="frame" x="0.0" y="0.0" width="178" height="187.5"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="htx-aa-6ZZ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="178" height="187.5"/>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hJK-ie-Wnd">
+                                                                <rect key="frame" x="0.0" y="0.0" width="178" height="125"/>
+                                                                <subviews>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSI-TH-SCS">
+                                                                        <rect key="frame" x="50" y="15" width="78" height="85"/>
+                                                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <fontDescription key="fontDescription" name="Digital-7Mono" family="Digital-7 Mono" pointSize="17"/>
+                                                                        <state key="normal" title="HomeGoals">
+                                                                            <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        </state>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="8"/>
+                                                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="2"/>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                        <connections>
+                                                                            <action selector="scoreHomeGoal:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PGl-VU-iCg"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                </subviews>
+                                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstItem="dSI-TH-SCS" firstAttribute="top" secondItem="hJK-ie-Wnd" secondAttribute="top" constant="15" id="FaJ-af-Sed"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="dSI-TH-SCS" secondAttribute="trailing" constant="50" id="IB7-me-UJY"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="dSI-TH-SCS" secondAttribute="bottom" constant="25" id="Iv0-ST-0Sg"/>
+                                                                    <constraint firstItem="dSI-TH-SCS" firstAttribute="leading" secondItem="hJK-ie-Wnd" secondAttribute="leading" constant="50" id="a6c-pL-1rB"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNt-3C-q0g">
+                                                                <rect key="frame" x="0.0" y="125" width="178" height="62.5"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="48"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="LNt-3C-q0g" firstAttribute="height" secondItem="hJK-ie-Wnd" secondAttribute="height" multiplier="0.5" id="JOV-mM-OVB"/>
+                                                        </constraints>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="htx-aa-6ZZ" firstAttribute="top" secondItem="tQu-6M-tNT" secondAttribute="top" id="9Fq-Vk-IDB"/>
+                                                    <constraint firstAttribute="bottom" secondItem="htx-aa-6ZZ" secondAttribute="bottom" id="MFU-Ps-xXv"/>
+                                                    <constraint firstItem="htx-aa-6ZZ" firstAttribute="leading" secondItem="tQu-6M-tNT" secondAttribute="leading" id="T1C-as-bbE"/>
+                                                    <constraint firstAttribute="trailing" secondItem="htx-aa-6ZZ" secondAttribute="trailing" id="oyp-0P-ZcB"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bZ6-r8-eHq" userLabel="Time">
+                                                <rect key="frame" x="178" y="0.0" width="311" height="187.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mn4-wC-hHC">
+                                                        <rect key="frame" x="10" y="15" width="291" height="122.5"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" name="Digital-7Mono" family="Digital-7 Mono" pointSize="17"/>
+                                                        <state key="normal" title="GameClock">
+                                                            <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="8"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="2"/>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="toggleGameClock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0ZD-Ue-WQf"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="Mn4-wC-hHC" secondAttribute="trailing" constant="10" id="0WO-v4-pFg"/>
+                                                    <constraint firstItem="Mn4-wC-hHC" firstAttribute="leading" secondItem="bZ6-r8-eHq" secondAttribute="leading" constant="10" id="LCJ-GZ-aDV"/>
+                                                    <constraint firstItem="Mn4-wC-hHC" firstAttribute="top" secondItem="bZ6-r8-eHq" secondAttribute="top" constant="15" id="VcW-04-pLW"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Mn4-wC-hHC" secondAttribute="bottom" constant="50" id="bpQ-rv-b73"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e8Q-mU-GcP" userLabel="Away Goals">
+                                                <rect key="frame" x="489" y="0.0" width="178" height="187.5"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pb9-B4-K6L">
+                                                        <rect key="frame" x="0.0" y="0.0" width="178" height="187.5"/>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PXX-RK-1hh">
+                                                                <rect key="frame" x="0.0" y="0.0" width="178" height="125"/>
+                                                                <subviews>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahA-s7-PYH">
+                                                                        <rect key="frame" x="50" y="15" width="78" height="85"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <fontDescription key="fontDescription" name="Digital-7Mono" family="Digital-7 Mono" pointSize="17"/>
+                                                                        <state key="normal" title="AwayGoals">
+                                                                            <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        </state>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="8"/>
+                                                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="2"/>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </button>
+                                                                </subviews>
+                                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="bottom" secondItem="ahA-s7-PYH" secondAttribute="bottom" constant="25" id="7ZH-nu-KSA"/>
+                                                                    <constraint firstItem="ahA-s7-PYH" firstAttribute="leading" secondItem="PXX-RK-1hh" secondAttribute="leading" constant="50" id="hLC-kv-JOU"/>
+                                                                    <constraint firstItem="ahA-s7-PYH" firstAttribute="top" secondItem="PXX-RK-1hh" secondAttribute="top" constant="15" id="p4f-jV-1Vs"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="ahA-s7-PYH" secondAttribute="trailing" constant="50" id="wBE-VV-Elv"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Visitor" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hWI-Iz-Tb5" userLabel="Away">
+                                                                <rect key="frame" x="0.0" y="125" width="178" height="62.5"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="48"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="hWI-Iz-Tb5" firstAttribute="height" secondItem="PXX-RK-1hh" secondAttribute="height" multiplier="0.5" id="ka3-qt-LSx"/>
+                                                        </constraints>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="pb9-B4-K6L" secondAttribute="trailing" id="4DB-qA-Unh"/>
+                                                    <constraint firstItem="pb9-B4-K6L" firstAttribute="top" secondItem="e8Q-mU-GcP" secondAttribute="top" id="C2o-74-TWt"/>
+                                                    <constraint firstAttribute="bottom" secondItem="pb9-B4-K6L" secondAttribute="bottom" id="Owq-PB-1j7"/>
+                                                    <constraint firstItem="pb9-B4-K6L" firstAttribute="leading" secondItem="e8Q-mU-GcP" secondAttribute="leading" id="Qlg-t4-zVT"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="tQu-6M-tNT" firstAttribute="width" secondItem="e8Q-mU-GcP" secondAttribute="width" id="gZo-bc-aQN"/>
+                                            <constraint firstItem="bZ6-r8-eHq" firstAttribute="width" secondItem="tQu-6M-tNT" secondAttribute="width" multiplier="1.75" id="k4c-1j-zmo"/>
+                                        </constraints>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ckG-OJ-MrI" userLabel="StatsEntry">
                                         <rect key="frame" x="0.0" y="187.5" width="667" height="187.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="zCb-3S-aXa">
                                                 <rect key="frame" x="150" y="10" width="367" height="135"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KQa-4Z-lCh" userLabel="Scorer">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wRi-Oq-yvu" userLabel="AssistFirst">
                                                         <rect key="frame" x="0.0" y="0.0" width="367" height="45"/>
                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="24"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wRi-Oq-yvu" userLabel="AssistFirst">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KQa-4Z-lCh" userLabel="Scorer">
                                                         <rect key="frame" x="0.0" y="45" width="367" height="45"/>
                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="24"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
@@ -236,12 +485,16 @@
                         <viewLayoutGuide key="safeArea" id="CPC-jF-0Gm"/>
                     </view>
                     <connections>
+                        <outlet property="AwayGoals" destination="ahA-s7-PYH" id="3CL-hS-HCn"/>
                         <outlet property="assist1" destination="wRi-Oq-yvu" id="PVM-7K-vyC"/>
                         <outlet property="assist2" destination="Q9L-Ss-kdS" id="Oue-vt-dNd"/>
+                        <outlet property="awayGoals" destination="ahA-s7-PYH" id="ZGe-YI-Wbw"/>
                         <outlet property="cancel" destination="8Ii-P7-ifZ" id="cLr-PC-vuC"/>
+                        <outlet property="homeGoals" destination="dSI-TH-SCS" id="DMP-jK-1NW"/>
                         <outlet property="save" destination="gSr-7t-O7T" id="aAL-c0-OeC"/>
                         <outlet property="scorer" destination="KQa-4Z-lCh" id="zVz-Jc-juX"/>
                         <outlet property="share" destination="Cif-mv-aOt" id="IOY-vk-dA1"/>
+                        <outlet property="time" destination="Mn4-wC-hHC" id="b4x-JW-0tq"/>
                         <segue destination="ibP-sr-odT" kind="unwind" identifier="exitGoal" unwindAction="didUnwindFromGoalVc:" id="6if-DH-Sqx"/>
                     </connections>
                 </viewController>

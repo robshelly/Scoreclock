@@ -29,32 +29,48 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Initialise Game
         game = Game()
         
-        let btnLabels:[UILabel] = [timeLabel.titleLabel!, homeGoalLabel.titleLabel!, awayGoalLabel.titleLabel!]
-        formatBtnLabels(btnLabels: btnLabels)
+        // Format Game clock
+        timeLabel.setTitle(Utilities.timeString(time: gameTime), for: .normal)
         
-        timeLabel.setTitle(timeString(time: gameTime), for: .normal)
+        // Format some UI elements
+        formatBtnLabels()
         updateGoalLabels()
     }
+
+    @IBOutlet weak var timeLabel: UIButton!
+    @IBOutlet weak var homeGoalLabel: UIButton!
+    @IBOutlet weak var awayGoalLabel: UIButton!
     
     func updateGoalLabels() {
         homeGoalLabel.setTitle(String(format: "%02d", game.homeGoals.count), for: .normal)
         awayGoalLabel.setTitle(String(format: "%02d", game.awayGoals.count), for: .normal)
     }
     
-    @IBOutlet weak var timeLabel: UIButton!
-    @IBOutlet weak var homeGoalLabel: UIButton!
-    @IBOutlet weak var awayGoalLabel: UIButton!
+    func setBorderColours() {
+        // Can't set border colour of buttons in User Defined Attributes so set here instead
+        // See https://stackoverflow.com/a/15010440
+        // Other border attributes set in User Defined Runtime Attributes
+        // https://stackoverflow.com/a/30091664
+        for btn in [timeLabel, homeGoalLabel, awayGoalLabel] {
+            btn?.layer.borderColor = UIColor.white.cgColor
+        }
+    }
     
-    func formatBtnLabels(btnLabels: [UILabel]) {
+    func formatBtnLabels() {
+        let btnLabels:[UILabel] = [timeLabel.titleLabel!, homeGoalLabel.titleLabel!, awayGoalLabel.titleLabel!]
         for lbl in btnLabels {
             lbl.numberOfLines = 1
             lbl.adjustsFontSizeToFitWidth = true
             lbl.baselineAdjustment = .alignCenters
             lbl.lineBreakMode = NSLineBreakMode.byClipping;
+            // set font very big and it will be scaled down to fit
+            // if it's set smaller (therefore already fits) it won't scale up
             lbl.font = UIFont(name:"Digital-7Mono", size: 200)
         }
+        setBorderColours()
     }
     
 //    @IBAction func startTimer(_ sender: Any) {
@@ -94,7 +110,7 @@ class ViewController: UIViewController {
         // Prevent button flashing when text updates
         // https://stackoverflow.com/a/39071660
         UIView.performWithoutAnimation {
-            timeLabel.setTitle(timeString(time: gameTime), for: .normal)
+            timeLabel.setTitle(Utilities.timeString(time: gameTime), for: .normal)
             timeLabel.layoutIfNeeded()
         }
     }
@@ -167,16 +183,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func didUnwindFromGoalVc(_ sender: UIStoryboardSegue) {
-//        guard let goalVC = sender.source as? GoalVC else { return }
-//        let stat = goalVC.goalStat
-//        shareGameStat(msg: stat)
-//        updateGoalLabels()
-    }
-    
-    func timeString(time:TimeInterval) -> String {
-        let minutes = Int(time) / 60 % 60
-        let seconds = Int(time) % 60
-        return String(format:"%02i.%02i", minutes, seconds)
+        updateGoalLabels()
     }
 }
 
