@@ -27,17 +27,26 @@ var currentPeriod:String = "1"
 var soundsEffect: AVAudioPlayer?
 var sounds:Bool = false
 var periods:[String] = ["1", "2", "3", "OT"]
+var goalBtns:[UIButton]!
+
+var homePenaltyOneTime: TimeInterval = 0
+var homePenaltyTwoTime: TimeInterval = 0
+var awayPenaltyOneTime: TimeInterval = 0
+var awayPenaltyTwoTime: TimeInterval = 0
 
 
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
     
     @IBOutlet weak var timeLabel: UIButton!
+    
     @IBOutlet weak var homeGoalLabel: UIButton!
     @IBOutlet weak var awayGoalLabel: UIButton!
+    
     @IBOutlet weak var homePenaltyOne: UIButton!
     @IBOutlet weak var homePenaltyTwo: UIButton!
     @IBOutlet weak var awayPenaltyOne: UIButton!
     @IBOutlet weak var awayPenaltyTwo: UIButton!
+    
     @IBOutlet weak var periodPicker: UIPickerView!
     @IBOutlet weak var sound: UIButton!
     
@@ -62,6 +71,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 
         periodPicker.delegate = self
         periodPicker.dataSource = self
+        
+        goalBtns = [homeGoalLabel, awayGoalLabel]
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -110,6 +121,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         addHomeGoalActions()
         addAwayGoalActions()
+        addHomePenaltyOneActions()
+        addHomePenaltyTwoActions()
+        addAwayPenaltyOneActions()
+        addAwayPenaltyTwoActions()
         addTimeActions()
     }
     
@@ -132,6 +147,146 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         let holdTime = UILongPressGestureRecognizer(target: self, action: #selector(self.setClock))
         timeLabel.addGestureRecognizer(tapTime)
         timeLabel.addGestureRecognizer(holdTime)
+    }
+    
+    func addHomePenaltyOneActions() {
+        let tapHomePenaltyOne = UITapGestureRecognizer(target: self, action: #selector(self.addHomePenaltyOne))
+        let holdHomePenaltyOne = UILongPressGestureRecognizer(target: self, action: #selector(self.deleteHomePenaltyOne))
+        homePenaltyOne.addGestureRecognizer(tapHomePenaltyOne)
+        homePenaltyOne.addGestureRecognizer(holdHomePenaltyOne)
+    }
+    
+    func addHomePenaltyTwoActions() {
+        let tapHomePenaltyTwo = UITapGestureRecognizer(target: self, action: #selector(self.addHomePenaltyTwo))
+        let holdHomePenaltyTwo = UILongPressGestureRecognizer(target: self, action: #selector(self.deleteHomePenaltyTwo))
+        homePenaltyTwo.addGestureRecognizer(tapHomePenaltyTwo)
+        homePenaltyTwo.addGestureRecognizer(holdHomePenaltyTwo)
+    }
+    
+    func addAwayPenaltyOneActions() {
+        let tapAwayPenaltyOne = UITapGestureRecognizer(target: self, action: #selector(self.addAwayPenaltyOne))
+        let holdAwayPenaltyOne = UILongPressGestureRecognizer(target: self, action: #selector(self.deleteAwayPenaltyOne))
+        awayPenaltyOne.addGestureRecognizer(tapAwayPenaltyOne)
+        awayPenaltyOne.addGestureRecognizer(holdAwayPenaltyOne)
+    }
+    
+    func addAwayPenaltyTwoActions() {
+        let tapAwayPenaltyTwo = UITapGestureRecognizer(target: self, action: #selector(self.addAwayPenaltyTwo))
+        let holdAwayPenaltyTwo = UILongPressGestureRecognizer(target: self, action: #selector(self.deleteAwayPenaltyTwo))
+        awayPenaltyTwo.addGestureRecognizer(tapAwayPenaltyTwo)
+        awayPenaltyTwo.addGestureRecognizer(holdAwayPenaltyTwo)
+    }
+    
+    @objc func addHomePenaltyOne() {
+        let alert = UIAlertController(title: "Set Penalty Minutes", message: "Set period time (minutes)", preferredStyle: .alert)
+        
+        alert.addTextField { (minutes) in
+            minutes.text = "2"
+        }
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let minutes = alert?.textFields![0].text // Force unwrapping because we know it exists.
+            // Gettings Doubl from optional string
+            // https://stackoverflow.com/a/46989179
+            guard let minutesString = minutes else { return }
+            let mins = Double(minutesString)
+            if (mins != nil) {
+                homePenaltyOneTime = mins! * 60
+                self.homePenaltyOne.setTitle(Utilities.timeString(time: homePenaltyOneTime), for: .normal)
+            } else {
+                print("Invalid input")
+            }
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @objc func addHomePenaltyTwo() {
+        let alert = UIAlertController(title: "Set Penalty Minutes", message: "Set period time (minutes)", preferredStyle: .alert)
+        
+        alert.addTextField { (minutes) in
+            minutes.text = "2"
+        }
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let minutes = alert?.textFields![0].text // Force unwrapping because we know it exists.
+            // Gettings Doubl from optional string
+            // https://stackoverflow.com/a/46989179
+            guard let minutesString = minutes else { return }
+            let mins = Double(minutesString)
+            if (mins != nil) {
+                homePenaltyTwoTime = mins! * 60
+                self.homePenaltyTwo.setTitle(Utilities.timeString(time: homePenaltyTwoTime), for: .normal)
+            } else {
+                print("Invalid input")
+            }
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @objc func addAwayPenaltyOne() {
+        let alert = UIAlertController(title: "Set Penalty Minutes", message: "Set period time (minutes)", preferredStyle: .alert)
+        
+        alert.addTextField { (minutes) in
+            minutes.text = "2"
+        }
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let minutes = alert?.textFields![0].text // Force unwrapping because we know it exists.
+            // Gettings Doubl from optional string
+            // https://stackoverflow.com/a/46989179
+            guard let minutesString = minutes else { return }
+            let mins = Double(minutesString)
+            if (mins != nil) {
+                awayPenaltyOneTime = mins! * 60
+                self.awayPenaltyOne.setTitle(Utilities.timeString(time: awayPenaltyOneTime), for: .normal)
+            } else {
+                print("Invalid input")
+            }
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @objc func addAwayPenaltyTwo() {
+        let alert = UIAlertController(title: "Set Penalty Minutes", message: "Set period time (minutes)", preferredStyle: .alert)
+        
+        alert.addTextField { (minutes) in
+            minutes.text = "2"
+        }
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let minutes = alert?.textFields![0].text // Force unwrapping because we know it exists.
+            // Gettings Doubl from optional string
+            // https://stackoverflow.com/a/46989179
+            guard let minutesString = minutes else { return }
+            let mins = Double(minutesString)
+            if (mins != nil) {
+                awayPenaltyTwoTime = mins! * 60
+                self.awayPenaltyTwo.setTitle(Utilities.timeString(time: awayPenaltyTwoTime), for: .normal)
+            } else {
+                print("Invalid input")
+            }
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @objc func deleteHomePenaltyOne() {
+        homePenaltyOneTime = 0
+        homePenaltyOne.setTitle(Utilities.timeString(time: homePenaltyOneTime), for: .normal)
+    }
+    
+    @objc func deleteHomePenaltyTwo() {
+        homePenaltyTwoTime = 0
+        homePenaltyTwo.setTitle(Utilities.timeString(time: homePenaltyTwoTime), for: .normal)
+    }
+    
+    @objc func deleteAwayPenaltyOne() {
+        awayPenaltyOneTime = 0
+        awayPenaltyOne.setTitle(Utilities.timeString(time: awayPenaltyOneTime), for: .normal)
+    }
+    
+    @objc func deleteAwayPenaltyTwo() {
+        awayPenaltyTwoTime = 0
+        awayPenaltyTwo.setTitle(Utilities.timeString(time: awayPenaltyTwoTime), for: .normal)
     }
     
     @objc func scoreHomeGoal() {
@@ -187,8 +342,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                     print("Invalid input")
                 }
             }))
-            
-            // 4. Present the alert.
             self.present(alert, animated: true, completion: nil)
         }
     }
@@ -290,10 +443,15 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @objc func UpdateTimer() {
         gameTime -= 1
         
+        if (homePenaltyOneTime > 0) { updateHomePenaltyOneTime() }
+        if (homePenaltyTwoTime > 0) { updateHomePenaltyTwoTime() }
+        if (awayPenaltyOneTime > 0) { updateAwayPenaltyOneTime() }
+        if (awayPenaltyTwoTime > 0) { updateAwayPenaltyTwoTime() }
+        
+        
         if gameTime == 0 {
             gameClock.invalidate()
             if sounds { playPeriodEndHorn() }
-            // TODO other stuff too
         }
         
         // Prevent button flashing when text updates
@@ -304,35 +462,67 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }
     }
     
+    func updateHomePenaltyOneTime() {
+        homePenaltyOneTime -= 1
+        UIView.performWithoutAnimation {
+            homePenaltyOne.setTitle(Utilities.timeString(time: homePenaltyOneTime), for: .normal)
+            homePenaltyOne.layoutIfNeeded()
+        }
+    }
+    
+    func updateHomePenaltyTwoTime() {
+        homePenaltyTwoTime -= 1
+        UIView.performWithoutAnimation {
+            homePenaltyTwo.setTitle(Utilities.timeString(time: homePenaltyTwoTime), for: .normal)
+            homePenaltyTwo.layoutIfNeeded()
+        }
+    }
+    
+    func updateAwayPenaltyOneTime() {
+        awayPenaltyOneTime -= 1
+        UIView.performWithoutAnimation {
+            awayPenaltyOne.setTitle(Utilities.timeString(time: awayPenaltyOneTime), for: .normal)
+            awayPenaltyOne.layoutIfNeeded()
+        }
+    }
+    
+    func updateAwayPenaltyTwoTime() {
+        awayPenaltyTwoTime -= 1
+        UIView.performWithoutAnimation {
+            awayPenaltyTwo.setTitle(Utilities.timeString(time: awayPenaltyTwoTime), for: .normal)
+            awayPenaltyTwo.layoutIfNeeded()
+        }
+    }
+    
     @IBAction func newGame(_ sender: Any) {
         game = Game()
         gameClock.invalidate()
         setGameClock(time: 20)
         updateGoalLabels()
         periodPicker.selectRow(0, inComponent: 0, animated: false)
+        
+        homePenaltyOneTime = 0
+        homePenaltyTwoTime = 0
+        awayPenaltyOneTime = 0
+        awayPenaltyTwoTime = 0
+        
+        homePenaltyOne.setTitle(Utilities.timeString(time: homePenaltyOneTime), for: .normal)
+        homePenaltyTwo.setTitle(Utilities.timeString(time: homePenaltyTwoTime), for: .normal)
+        awayPenaltyOne.setTitle(Utilities.timeString(time: awayPenaltyOneTime), for: .normal)
+        awayPenaltyTwo.setTitle(Utilities.timeString(time: awayPenaltyTwoTime), for: .normal)
     }
     
     @IBAction func toggleSound(_ sender: Any) {
-//        if sounds {
-//            print("Turning OFF Sound an changing image")
-//            sound.setImage(UIImage(named: "sound-off.png"), for: .normal)
-//        } else {
-//            print("Turning ON Sound an changing image")
-//            sound.setImage(UIImage(named: "sound-on.png"), for: .normal)
-//        }
-        sounds = !sounds
-//        let imgName = sounds ? "sound-on" : "sound-off"
-//        let image = UIImage(named: "\(imgName).png")!
-//        sound.setImage(image, for: .normal)
         if sounds {
             sound.setTitle("On", for: .normal)
         } else {
             sound.setTitle("Off", for: .normal)
         }
         print("Sound on: \(sounds)")
-    }	
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         guard let goalVC = segue.destination as? GoalVC else { return }
         goalVC.scoringTeam = "home"
         if (sender as! UIButton) == self.homeGoalLabel {
@@ -346,4 +536,5 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         updateGoalLabels()
     }
 }
+
 
