@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -272,7 +272,19 @@
                                                                     </label>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DeN-xT-OLo">
                                                                         <rect key="frame" x="0.0" y="47" width="222" height="93.5"/>
-                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <subviews>
+                                                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pw5-RK-Bvw">
+                                                                                <rect key="frame" x="60" y="0.0" width="102" height="93.5"/>
+                                                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            </pickerView>
+                                                                        </subviews>
+                                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="trailing" secondItem="Pw5-RK-Bvw" secondAttribute="trailing" constant="60" id="A3W-hu-ILu"/>
+                                                                            <constraint firstItem="Pw5-RK-Bvw" firstAttribute="leading" secondItem="DeN-xT-OLo" secondAttribute="leading" constant="60" id="ZAb-w7-0tc"/>
+                                                                            <constraint firstItem="Pw5-RK-Bvw" firstAttribute="top" secondItem="DeN-xT-OLo" secondAttribute="top" id="bbK-AA-b69"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="Pw5-RK-Bvw" secondAttribute="bottom" id="xcK-J2-R8R"/>
+                                                                        </constraints>
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bZL-IW-JOJ" userLabel="Settings">
                                                                         <rect key="frame" x="0.0" y="140.5" width="222" height="47"/>
@@ -284,6 +296,9 @@
                                                                                 <state key="normal" title="New Game">
                                                                                     <color key="titleColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 </state>
+                                                                                <connections>
+                                                                                    <action selector="newGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qza-mU-hQO"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AcG-DP-Z05">
                                                                                 <rect key="frame" x="166.5" y="0.0" width="55.5" height="47"/>
@@ -427,6 +442,7 @@
                         <outlet property="homeGoalLabel" destination="ov5-E2-eyP" id="p1h-7Y-ueg"/>
                         <outlet property="homePenaltyOne" destination="wsY-pw-kTY" id="s65-la-dnj"/>
                         <outlet property="homePenaltyTwo" destination="Dja-sj-JNu" id="8FO-gb-3Zi"/>
+                        <outlet property="periodPicker" destination="Pw5-RK-Bvw" id="JUW-Kx-BNh"/>
                         <outlet property="timeLabel" destination="Nz8-Rb-Cdi" id="An7-cF-cA4"/>
                         <segue destination="S8i-Nh-Sv2" kind="show" identifier="goal" id="dpK-fB-KNg"/>
                     </connections>

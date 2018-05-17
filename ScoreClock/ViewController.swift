@@ -23,10 +23,13 @@ var game: Game!
 var gameTime:TimeInterval = 1200
 var gameClock:Timer = Timer()
 var isPlaying:Bool = false
+var currentPeriod:String = "1"
 var soundsEffect: AVAudioPlayer?
-var sounds:Bool = true
+var sounds:Bool = false
+var periods:[String] = ["1", "2", "3", "OT"]
 
-class ViewController: UIViewController {
+
+class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
     
     @IBOutlet weak var timeLabel: UIButton!
     @IBOutlet weak var homeGoalLabel: UIButton!
@@ -35,6 +38,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var homePenaltyTwo: UIButton!
     @IBOutlet weak var awayPenaltyOne: UIButton!
     @IBOutlet weak var awayPenaltyTwo: UIButton!
+    @IBOutlet weak var periodPicker: UIPickerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +58,46 @@ class ViewController: UIViewController {
         
         // Add actions for tap and hold to buttons
         addButtonActions()
+        
+        periodPicker.delegate = self
+        periodPicker.dataSource = self
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        periodPicker.backgroundColor = UIColor.black
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 4
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return periods[row]
+    }
+    
+    // Customiszing Pickerview
+    // https://stackoverflow.com/a/47073330
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        var label = UILabel()
+        if let v = view {
+            label = v as! UILabel
+        }
+        label.font = UIFont (name: "Digital-7", size: 64)
+        label.textColor = UIColor.yellow
+        label.text =  periods[row]
+        label.textAlignment = .center
+        return label
+    }
+    
+    //Change pickerview line size
+    // https://makeapppie.com/2014/10/21/swift-swift-formatting-a-uipickerview/
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 64.0
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        currentPeriod = periods[row]
     }
     
     func addButtonActions() {
@@ -130,7 +174,6 @@ class ViewController: UIViewController {
                 minutes.text = "20"
             }
             
-            // 3. Grab the value from the text field, and print it when the user clicks OK.
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
                 let minutes = alert?.textFields![0].text // Force unwrapping because we know it exists.
                 // Gettings Doubl from optional string
@@ -140,7 +183,7 @@ class ViewController: UIViewController {
                 if (mins != nil) {
                     self.setGameClock(time: mins!)
                 } else {
-                    print("Wrong input")
+                    print("Invalid input")
                 }
             }))
             
@@ -258,6 +301,14 @@ class ViewController: UIViewController {
             timeLabel.setTitle(Utilities.timeString(time: gameTime), for: .normal)
             timeLabel.layoutIfNeeded()
         }
+    }
+    
+    @IBAction func newGame(_ sender: Any) {
+        game = Game()
+        gameClock.invalidate()
+        setGameClock(time: 20)
+        updateGoalLabels()
+        periodPicker.selectRow(0, inComponent: 0, animated: false)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

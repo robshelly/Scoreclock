@@ -70,15 +70,23 @@ class GoalVC: UIViewController {
     
     func getGoalStat() -> String {
         var goalStat = "Goal!\n"
-        // Add scoring team
+        // Append scoring team
         goalStat += (scoringTeam == "home") ? "\(game.homeTeam!)" : "\(game.awayTeam!)"
+        
+        // Append time
         goalStat += " @ \(Utilities.timeString(time: gameTime))"
         
-        // Add Scoring player
+        // Append period
+        if currentPeriod == "1" { goalStat += " (1st)"}
+        else if currentPeriod == "2" { goalStat += " (2nd)"}
+        if currentPeriod == "3" { goalStat += " (3rd)"}
+        if currentPeriod == "OT" { goalStat += " (Overtime)"}
+        
+        // Append Scoring player
         if ((scoringPlayer) != nil) {
             goalStat += "\n\(scoringPlayer!)"
         
-            // Add assists
+            // Append assists
             goalStat += ((assist1Player) != nil) ? "\nAssists: \(assist1Player!)" : " (Unassisted)"
             goalStat += ((assist2Player) != nil) ? ", \(assist2Player!)" : ""
         
@@ -87,7 +95,6 @@ class GoalVC: UIViewController {
             present(activityController, animated: true,  completion: nil)
         } else {
         }
-        print("Goal Stat: \n \(goalStat)")
         return goalStat
     }
     
