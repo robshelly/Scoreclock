@@ -23,6 +23,8 @@
 		84F3F47020AC75FE009E84A0 /* digital-7.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84F3F46F20AC75FE009E84A0 /* digital-7.ttf */; };
 		84F3F47320ACBBDF009E84A0 /* PeriodHorn.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 84F3F47220ACBBDF009E84A0 /* PeriodHorn.m4a */; };
 		84F3F47520ACBD11009E84A0 /* GoalHorn.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 84F3F47420ACBD10009E84A0 /* GoalHorn.m4a */; };
+		AACD20B420AD1F54003ED6B6 /* sound-off.png in Resources */ = {isa = PBXBuildFile; fileRef = AACD20B220AD1F53003ED6B6 /* sound-off.png */; };
+		AACD20B520AD1F54003ED6B6 /* sound-on.png in Resources */ = {isa = PBXBuildFile; fileRef = AACD20B320AD1F54003ED6B6 /* sound-on.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,8 @@
 		84F3F46F20AC75FE009E84A0 /* digital-7.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "digital-7.ttf"; sourceTree = "<group>"; };
 		84F3F47220ACBBDF009E84A0 /* PeriodHorn.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = PeriodHorn.m4a; sourceTree = "<group>"; };
 		84F3F47420ACBD10009E84A0 /* GoalHorn.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = GoalHorn.m4a; sourceTree = "<group>"; };
+		AACD20B220AD1F53003ED6B6 /* sound-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sound-off.png"; sourceTree = "<group>"; };
+		AACD20B320AD1F54003ED6B6 /* sound-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sound-on.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,7 @@
 			children = (
 				84C1C0F7207FA977000782F4 /* ScoreClock */,
 				84C1C126207FAB08000782F4 /* fonts */,
+				AACD20AC20AD12BD003ED6B6 /* images */,
 				84F3F47120ACBB98009E84A0 /* sounds */,
 				84C1C10C207FA978000782F4 /* ScoreClockTests */,
 				84C1C0F6207FA977000782F4 /* Products */,
@@ -166,6 +171,15 @@
 				84F3F47220ACBBDF009E84A0 /* PeriodHorn.m4a */,
 			);
 			path = sounds;
+			sourceTree = "<group>";
+		};
+		AACD20AC20AD12BD003ED6B6 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				AACD20B220AD1F53003ED6B6 /* sound-off.png */,
+				AACD20B320AD1F54003ED6B6 /* sound-on.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,7 +289,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AACD20B420AD1F54003ED6B6 /* sound-off.png in Resources */,
 				84F3F47320ACBBDF009E84A0 /* PeriodHorn.m4a in Resources */,
+				AACD20B520AD1F54003ED6B6 /* sound-on.png in Resources */,
 				84C1C103207FA977000782F4 /* LaunchScreen.storyboard in Resources */,
 				84F3F47020AC75FE009E84A0 /* digital-7.ttf in Resources */,
 				84C1C100207FA977000782F4 /* Assets.xcassets in Resources */,

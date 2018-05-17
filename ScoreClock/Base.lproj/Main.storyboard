@@ -300,25 +300,40 @@
                                                                                     <action selector="newGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qza-mU-hQO"/>
                                                                                 </connections>
                                                                             </button>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AcG-DP-Z05">
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mBc-cZ-dZ9">
                                                                                 <rect key="frame" x="166.5" y="0.0" width="55.5" height="47"/>
-                                                                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                <fontDescription key="fontDescription" name="Digital-7Mono" family="Digital-7 Mono" pointSize="17"/>
-                                                                                <state key="normal" title="Sound">
-                                                                                    <color key="titleColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                                </state>
-                                                                            </button>
+                                                                                <subviews>
+                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AcG-DP-Z05">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="55.5" height="47"/>
+                                                                                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="17"/>
+                                                                                        <state key="normal" title="Sound">
+                                                                                            <color key="titleColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                        </state>
+                                                                                        <connections>
+                                                                                            <action selector="toggleSound:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xVR-FQ-P2l"/>
+                                                                                        </connections>
+                                                                                    </button>
+                                                                                </subviews>
+                                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="trailing" secondItem="AcG-DP-Z05" secondAttribute="trailing" id="5TN-ya-kTn"/>
+                                                                                    <constraint firstAttribute="bottom" secondItem="AcG-DP-Z05" secondAttribute="bottom" id="SzL-yW-TOu"/>
+                                                                                    <constraint firstItem="AcG-DP-Z05" firstAttribute="top" secondItem="mBc-cZ-dZ9" secondAttribute="top" id="l5c-ph-piS"/>
+                                                                                    <constraint firstItem="AcG-DP-Z05" firstAttribute="leading" secondItem="mBc-cZ-dZ9" secondAttribute="leading" id="qNY-Lz-J8f"/>
+                                                                                </constraints>
+                                                                            </view>
                                                                         </subviews>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="bottom" secondItem="sH7-Au-eiH" secondAttribute="bottom" id="5Ct-yh-faD"/>
-                                                                            <constraint firstAttribute="bottom" secondItem="AcG-DP-Z05" secondAttribute="bottom" id="7It-zA-d18"/>
-                                                                            <constraint firstItem="AcG-DP-Z05" firstAttribute="leading" secondItem="sH7-Au-eiH" secondAttribute="trailing" id="IMr-Qi-A5I"/>
-                                                                            <constraint firstAttribute="trailing" secondItem="AcG-DP-Z05" secondAttribute="trailing" id="YsN-cs-1UT"/>
-                                                                            <constraint firstItem="AcG-DP-Z05" firstAttribute="top" secondItem="bZL-IW-JOJ" secondAttribute="top" id="gKl-CF-9RR"/>
-                                                                            <constraint firstItem="sH7-Au-eiH" firstAttribute="leading" secondItem="bZL-IW-JOJ" secondAttribute="leading" id="oZV-em-plu"/>
-                                                                            <constraint firstItem="sH7-Au-eiH" firstAttribute="top" secondItem="bZL-IW-JOJ" secondAttribute="top" id="odi-ia-0Y0"/>
-                                                                            <constraint firstItem="sH7-Au-eiH" firstAttribute="width" secondItem="AcG-DP-Z05" secondAttribute="width" multiplier="3" id="sDu-OP-mtT"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="mBc-cZ-dZ9" secondAttribute="trailing" id="Jpj-f7-kse"/>
+                                                                            <constraint firstItem="mBc-cZ-dZ9" firstAttribute="leading" secondItem="sH7-Au-eiH" secondAttribute="trailing" id="dEi-r6-e3K"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="sH7-Au-eiH" secondAttribute="bottom" id="eyQ-1c-pb5"/>
+                                                                            <constraint firstItem="sH7-Au-eiH" firstAttribute="leading" secondItem="bZL-IW-JOJ" secondAttribute="leading" id="k98-Lx-71X"/>
+                                                                            <constraint firstItem="sH7-Au-eiH" firstAttribute="width" secondItem="mBc-cZ-dZ9" secondAttribute="width" multiplier="3" id="oa4-wq-ht4"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="mBc-cZ-dZ9" secondAttribute="bottom" id="x0u-nL-MWo"/>
+                                                                            <constraint firstItem="mBc-cZ-dZ9" firstAttribute="top" secondItem="bZL-IW-JOJ" secondAttribute="top" id="zJJ-zO-PhE"/>
+                                                                            <constraint firstItem="sH7-Au-eiH" firstAttribute="top" secondItem="bZL-IW-JOJ" secondAttribute="top" id="zeB-JQ-SUi"/>
                                                                         </constraints>
                                                                     </view>
                                                                 </subviews>
@@ -443,6 +458,7 @@
                         <outlet property="homePenaltyOne" destination="wsY-pw-kTY" id="s65-la-dnj"/>
                         <outlet property="homePenaltyTwo" destination="Dja-sj-JNu" id="8FO-gb-3Zi"/>
                         <outlet property="periodPicker" destination="Pw5-RK-Bvw" id="JUW-Kx-BNh"/>
+                        <outlet property="sound" destination="AcG-DP-Z05" id="y0a-Ud-YoM"/>
                         <outlet property="timeLabel" destination="Nz8-Rb-Cdi" id="An7-cF-cA4"/>
                         <segue destination="S8i-Nh-Sv2" kind="show" identifier="goal" id="dpK-fB-KNg"/>
                     </connections>

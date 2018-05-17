@@ -39,6 +39,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet weak var awayPenaltyOne: UIButton!
     @IBOutlet weak var awayPenaltyTwo: UIButton!
     @IBOutlet weak var periodPicker: UIPickerView!
+    @IBOutlet weak var sound: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +59,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         // Add actions for tap and hold to buttons
         addButtonActions()
-        
+
         periodPicker.delegate = self
         periodPicker.dataSource = self
     }
@@ -311,6 +312,26 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         periodPicker.selectRow(0, inComponent: 0, animated: false)
     }
     
+    @IBAction func toggleSound(_ sender: Any) {
+//        if sounds {
+//            print("Turning OFF Sound an changing image")
+//            sound.setImage(UIImage(named: "sound-off.png"), for: .normal)
+//        } else {
+//            print("Turning ON Sound an changing image")
+//            sound.setImage(UIImage(named: "sound-on.png"), for: .normal)
+//        }
+        sounds = !sounds
+//        let imgName = sounds ? "sound-on" : "sound-off"
+//        let image = UIImage(named: "\(imgName).png")!
+//        sound.setImage(image, for: .normal)
+        if sounds {
+            sound.setTitle("On", for: .normal)
+        } else {
+            sound.setTitle("Off", for: .normal)
+        }
+        print("Sound on: \(sounds)")
+    }	
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let goalVC = segue.destination as? GoalVC else { return }
         goalVC.scoringTeam = "home"
@@ -319,7 +340,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         } else {
             goalVC.scoringTeam = "away"
         }
-        
     }
     
     @IBAction func didUnwindFromGoalVc(_ sender: UIStoryboardSegue) {
