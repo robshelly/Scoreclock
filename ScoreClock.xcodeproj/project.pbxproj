@@ -23,8 +23,8 @@
 		84F3F47020AC75FE009E84A0 /* digital-7.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84F3F46F20AC75FE009E84A0 /* digital-7.ttf */; };
 		84F3F47320ACBBDF009E84A0 /* PeriodHorn.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 84F3F47220ACBBDF009E84A0 /* PeriodHorn.m4a */; };
 		84F3F47520ACBD11009E84A0 /* GoalHorn.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 84F3F47420ACBD10009E84A0 /* GoalHorn.m4a */; };
-		AACD20B420AD1F54003ED6B6 /* sound-off.png in Resources */ = {isa = PBXBuildFile; fileRef = AACD20B220AD1F53003ED6B6 /* sound-off.png */; };
-		AACD20B520AD1F54003ED6B6 /* sound-on.png in Resources */ = {isa = PBXBuildFile; fileRef = AACD20B320AD1F54003ED6B6 /* sound-on.png */; };
+		84F508B120AF058B0050632F /* soundOn.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F508AF20AF058B0050632F /* soundOn.png */; };
+		84F508B220AF058B0050632F /* soundOff.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F508B020AF058B0050632F /* soundOff.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,8 +67,8 @@
 		84F3F46F20AC75FE009E84A0 /* digital-7.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "digital-7.ttf"; sourceTree = "<group>"; };
 		84F3F47220ACBBDF009E84A0 /* PeriodHorn.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = PeriodHorn.m4a; sourceTree = "<group>"; };
 		84F3F47420ACBD10009E84A0 /* GoalHorn.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = GoalHorn.m4a; sourceTree = "<group>"; };
-		AACD20B220AD1F53003ED6B6 /* sound-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sound-off.png"; sourceTree = "<group>"; };
-		AACD20B320AD1F54003ED6B6 /* sound-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sound-on.png"; sourceTree = "<group>"; };
+		84F508AF20AF058B0050632F /* soundOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soundOn.png; sourceTree = "<group>"; };
+		84F508B020AF058B0050632F /* soundOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soundOff.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,8 +176,8 @@
 		AACD20AC20AD12BD003ED6B6 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				AACD20B220AD1F53003ED6B6 /* sound-off.png */,
-				AACD20B320AD1F54003ED6B6 /* sound-on.png */,
+				84F508B020AF058B0050632F /* soundOff.png */,
+				84F508AF20AF058B0050632F /* soundOn.png */,
 			);
 			path = images;
 			sourceTree = "<group>";
@@ -289,9 +289,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AACD20B420AD1F54003ED6B6 /* sound-off.png in Resources */,
+				84F508B120AF058B0050632F /* soundOn.png in Resources */,
 				84F3F47320ACBBDF009E84A0 /* PeriodHorn.m4a in Resources */,
-				AACD20B520AD1F54003ED6B6 /* sound-on.png in Resources */,
 				84C1C103207FA977000782F4 /* LaunchScreen.storyboard in Resources */,
 				84F3F47020AC75FE009E84A0 /* digital-7.ttf in Resources */,
 				84C1C100207FA977000782F4 /* Assets.xcassets in Resources */,
@@ -299,6 +298,7 @@
 				844482A920A1D95B00FAF5A5 /* digital-7 (mono).ttf in Resources */,
 				84F3F47520ACBD11009E84A0 /* GoalHorn.m4a in Resources */,
 				84C1C0FE207FA977000782F4 /* Main.storyboard in Resources */,
+				84F508B220AF058B0050632F /* soundOff.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,7 +497,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5MTJAM5ZC3;
 				INFOPLIST_FILE = ScoreClock/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = WIT.ScoreClock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -513,7 +513,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5MTJAM5ZC3;
 				INFOPLIST_FILE = ScoreClock/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = WIT.ScoreClock;
 				PRODUCT_NAME = "$(TARGET_NAME)";

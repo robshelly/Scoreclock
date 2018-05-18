@@ -71,6 +71,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 
         periodPicker.delegate = self
         periodPicker.dataSource = self
+        sound.setImage(UIImage(named:"soundOff.png"), for: .normal)
+
         
         goalBtns = [homeGoalLabel, awayGoalLabel]
     }
@@ -183,7 +185,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         alert.addTextField { (minutes) in
             minutes.text = "2"
         }
-        
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
             let minutes = alert?.textFields![0].text // Force unwrapping because we know it exists.
             // Gettings Doubl from optional string
@@ -196,6 +197,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             } else {
                 print("Invalid input")
             }
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            // Do nothing if cancelled
         }))
         self.present(alert, animated: true, completion: nil)
     }
@@ -220,6 +224,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 print("Invalid input")
             }
         }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            // Do nothing if cancelled
+        }))
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -243,6 +250,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 print("Invalid input")
             }
         }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            // Do nothing if cancelled
+        }))
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -265,6 +275,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             } else {
                 print("Invalid input")
             }
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            // Do nothing if cancelled
         }))
         self.present(alert, animated: true, completion: nil)
     }
@@ -513,10 +526,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     @IBAction func toggleSound(_ sender: Any) {
+        sounds = !sounds
         if sounds {
-            sound.setTitle("On", for: .normal)
+            sound.setImage(UIImage(named:"soundOn.png"), for: .normal)
         } else {
-            sound.setTitle("Off", for: .normal)
+            sound.setImage(UIImage(named:"soundOff.png"), for: .normal)
         }
         print("Sound on: \(sounds)")
     }
